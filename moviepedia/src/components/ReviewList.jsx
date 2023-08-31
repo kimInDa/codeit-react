@@ -1,9 +1,7 @@
 import './ReviewList.css';
 
 function formatDate(value) {
-  console.log(value);
   const date = new Date(value);
-  console.log(date);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
@@ -25,7 +23,11 @@ function ReviewList({ items }) {
   return (
     <ul>
       {items.map((item) => {
-        return <ReviewListItem key={items.id} item={item} />;
+        return (
+          <li key={item.id}>
+            <ReviewListItem item={item} />
+          </li>
+        );
       })}
     </ul>
   );
