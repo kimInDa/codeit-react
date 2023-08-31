@@ -1,14 +1,15 @@
+import { useState } from 'react';
 import FoodList from './components/FoodList';
 import items from './mock.json';
-import { useState } from 'react';
 
 function App() {
   const [order, setOrder] = useState('createdAt');
 
-  const sortedItems = items.sort((a, b) => b[order] - a[order]);
-
   const handleNewestClick = () => setOrder('createdAt');
+
   const handleCalorieClick = () => setOrder('calorie');
+
+  const sortedItems = items.sort((a, b) => b[order] - a[order]);
 
   return (
     <div>

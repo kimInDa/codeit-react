@@ -1,7 +1,13 @@
 import './FoodList.css';
 
+function formatData(vlaue) {
+  const date = new Date(vlaue);
+
+  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
+}
+
 function FoodListItem({ item }) {
-  const { imgUrl, title, calorie, content } = item;
+  const { imgUrl, title, calorie, content, createdAt } = item;
 
   return (
     <div className='FoodListItem'>
@@ -9,6 +15,7 @@ function FoodListItem({ item }) {
       <div>{title}</div>
       <div>{calorie}</div>
       <div>{content}</div>
+      <div>{formatData(createdAt)}</div>
     </div>
   );
 }
