@@ -21,11 +21,16 @@ function FileInput({ name, value, onChange }) {
     if (!value) return;
     const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
+
+    return () => {
+      setPreview();
+      URL.revokeObjectURL(nextPreview);
+    };
   }, [value]);
 
   return (
     <div>
-      <img src={preview} alt='이미지 미리보기' />
+      <img src={preview} accept='image/png, image/jpeg' alt='이미지 미리보기' />
       <input type='file' onChange={handleChange} ref={inputRef} />
       {value && <button onClick={handleClearClick}>X</button>}
     </div>
