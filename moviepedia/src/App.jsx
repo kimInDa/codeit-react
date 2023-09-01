@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ReviewList from './components/ReviewList';
 // import mockItems from './mock.json';
 import { getReviews } from './api';
+import ReviewForm from './components/ReviewForm';
 
 const LIMIT = 6;
 
@@ -60,6 +61,7 @@ function App() {
         <button onClick={handleNewestClick}>최신순</button>
         <button onClick={handleBestClick}>베스트순</button>
       </div>
+      <ReviewForm />
       <ReviewList items={sortedItems} onDelete={handleDelete} />
       {hasNext && (
         <button disabled={isLoading} onClick={handleLoadMore}>
