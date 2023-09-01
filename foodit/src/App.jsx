@@ -17,8 +17,8 @@ function App() {
   };
 
   const handleLoadClick = async () => {
-    const nextItems = await getFoods();
-    setItems(nextItems.foods);
+    const { foods } = await getFoods();
+    setItems(foods);
   };
 
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
